@@ -8,6 +8,12 @@
     --text-yellow: #dae26a;
     --text-selected : #34D399;
     --cell-size: 100px;
+
+    /* images */
+    --female-1 : url('./assets/f1.png');
+    --female-2: url('./assets/f2.png');
+    --male-1: url('./assets/m1.png');
+    --male-2: url('./assets/m2.png');
 }
 
 * > * {
@@ -20,7 +26,7 @@ body{
 }
 
 /* starting window */
-.start-game{
+.start-game, .container{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -62,4 +68,77 @@ body{
 
 .start-game .profile .img > img:hover{
     background-color: var(--text-yellow);
+}
+
+.start-game.hide{
+    display: none;
+}
+
+
+/* Main Game Board */
+#board{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: var(--text-light);
+    row-gap: 3px;
+    column-gap: 3px;
+}
+
+.block{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: rgb(54, 54, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.block.x, .block.x2,
+.block.y, .block.y2{
+    cursor: not-allowed;
+}
+
+.board.x .block:not(.x):not(.y):hover{
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.x .block:not(.x2):not(.y2):hover{
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    opacity: 0.4;
+}
+
+.board.x .block:not(.y):not(.x):hover{
+    background: var(--male-1) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+.board.x .block:not(.y2):not(.x2):hover{
+    background: var(--male-2) #816df2 no-repeat;
+    opacity: 0.4;
+}
+
+
+/* x is equal to female */
+/* y is equal to male */
+.block.x{
+    background: var(--female-1) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+.block.x2{
+    background: var(--female-2) var(--text-yellow) no-repeat;
+    background-size: cover;
+}
+
+
+.block.y{
+    background: var(--male-1) #816df2  no-repeat;
+    background-size: cover;
+}
+
+.block.y2{
+    background: var(--male-2) #816df2 no-repeat;
+    background-size: cover;
 }
