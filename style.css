@@ -104,17 +104,17 @@ body{
     opacity: 0.4;
 }
 
-.board.x .block:not(.x2):not(.y2):hover{
+.board.x2 .block:not(.x2):not(.y2):hover{
     background: var(--female-2) var(--text-yellow) no-repeat;
     opacity: 0.4;
 }
 
-.board.x .block:not(.y):not(.x):hover{
+.board.y .block:not(.y):not(.x):hover{
     background: var(--male-1) #816df2 no-repeat;
     opacity: 0.4;
 }
 
-.board.x .block:not(.y2):not(.x2):hover{
+.board.y2 .block:not(.y2):not(.x2):hover{
     background: var(--male-2) #816df2 no-repeat;
     opacity: 0.4;
 }
@@ -163,6 +163,12 @@ body{
 
 .draw-msg.show, .winner-msg.show{
     display: flex;
+}
+
+.start-game .profile .img > img.selected{
+    background-color: var(--text-selected);
+    border: 2px solid var(--text-light);
+    border-radius: 20px;
 }
 
 
