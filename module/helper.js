@@ -24,9 +24,21 @@ export function Profile(){
     });
 }
 
-
+/**  this function is use to remove selected class*/
 function removeImgSelection(img){
     [].forEach.call(img, function(el){
         el.classList.remove("selected");
     })
+}
+
+
+/**  funtion is use to setHoverEffect to the cell */
+export function setHoverEffect(){
+    GAME.boardElement.classList.remove(GAME.X_CLASS);
+    GAME.boardElement.classList.remove(GAME.Y_CLASS);
+    if (GAME.turn){
+        GAME.boardElement.classList.add(GAME.Y_CLASS);
+    }else{
+        GAME.boardElement.classList.add(GAME.X_CLASS);
+    }
 }
