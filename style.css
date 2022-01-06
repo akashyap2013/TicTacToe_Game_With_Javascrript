@@ -26,7 +26,7 @@ body{
 }
 
 /* starting window */
-.start-game, .container{
+.container{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -142,3 +142,29 @@ body{
     background: var(--male-2) #816df2 no-repeat;
     background-size: cover;
 }
+
+/* Draw and Winner Msg Window */
+.start-game, .draw-msg, .winner-msg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 49, 49, 0.938);
+}
+
+.draw-msg, .winner-msg{
+    display: none;
+}
+
+.draw-msg.show, .winner-msg.show{
+    display: flex;
+}
+
+
+
+
