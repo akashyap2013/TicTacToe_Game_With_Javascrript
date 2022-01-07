@@ -53,3 +53,13 @@ export function markCell(cell, currentClass){
 export function swapTurns(turn){
     return turn =! turn;
 }
+
+
+/** end game function */
+export function endGame(draw, winEl, drawEl){
+    if (!draw){
+        winEl.classList.add("show");
+    }else{
+        drawEl.classList.add("show");
+    }
+}

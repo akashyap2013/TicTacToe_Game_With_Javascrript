@@ -10,4 +10,7 @@ export let GAME = {
     boardElement : document.getElementById("board"),
     startBtn : document.getElementById("startBtn"),
     startWindow : document.querySelector(".start-game"),
+    winEl: document.querySelector(".winner-msg"),
+    drawEl : document.querySelector(".draw-msg"),
+    winnerImg : document.querySelector(".winner-msg .winner"),
 }

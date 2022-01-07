@@ -1,6 +1,6 @@
 
 import { GAME } from "./module/variables.js";
-import { Profile, setHoverEffect, markCell, swapTurns } from "./module/helper.js";
+import { Profile, endGame, setHoverEffect, markCell, swapTurns } from "./module/helper.js";
 import { checkWin, WIN_COMBINATIONS } from './module/win.js';
 
 // Game Buttons
@@ -37,14 +37,15 @@ function handleClick(e){
         })
 
         // set the winner
-        GAME.winner = GAME.blockElements[WIN_COMBINATIONS[index][0]];
+        GAME.winner = GAME.blockElements[WIN_COMBINATIONS[index][0]].cloneNode(true);
         return win !== false;
        }
     });
     
     //  check for win or draw
     if (flag.length){
-        console.log("win");
+        endGame(false, GAME.winEl, GAME.drawEl);
+        GAME.winnerImg.append(GAME.winner);
     }else{
         console.log("draw");
     }
