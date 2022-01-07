@@ -42,3 +42,8 @@ export function setHoverEffect(){
         GAME.boardElement.classList.add(GAME.X_CLASS);
     }
 }
+
+/** this function is use to add current user in the cell */
+export function markCell(cell, currentClass){
+    cell.classList.add(currentClass)
+}
