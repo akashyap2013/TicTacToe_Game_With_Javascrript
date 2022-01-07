@@ -47,3 +47,9 @@ export function setHoverEffect(){
 export function markCell(cell, currentClass){
     cell.classList.add(currentClass)
 }
+
+
+/**  use this function to swap user turns */
+export function swapTurns(turn){
+    return turn =! turn;
+}

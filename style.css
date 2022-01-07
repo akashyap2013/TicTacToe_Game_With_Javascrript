@@ -171,6 +171,10 @@ body{
     border-radius: 20px;
 }
 
+.win{
+    background-color: var(--text-selected) !important;
+}
+
 
 
 
