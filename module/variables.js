@@ -13,4 +13,6 @@ export let GAME = {
     winEl: document.querySelector(".winner-msg"),
     drawEl : document.querySelector(".draw-msg"),
     winnerImg : document.querySelector(".winner-msg .winner"),
+    restartBtn : document.getElementById("restartBtn"),
+    drawBtn : document.getElementById("drawBtn"),
 }

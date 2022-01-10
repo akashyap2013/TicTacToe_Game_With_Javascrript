@@ -1,10 +1,12 @@
 
 import { GAME } from "./module/variables.js";
-import { Profile, endGame, setHoverEffect, markCell, swapTurns } from "./module/helper.js";
+import { Profile, isDraw, endGame, setHoverEffect, markCell, swapTurns } from "./module/helper.js";
 import { checkWin, WIN_COMBINATIONS } from './module/win.js';
 
 // Game Buttons
 GAME.startBtn.addEventListener("click", startGame);
+GAME.restartBtn.addEventListener("click", startGame);
+GAME.drawBtn.addEventListener("click", startGame);
 
 Profile()
 
@@ -15,10 +17,17 @@ function startGame(){
 
     // iterate over cells and add click event
     GAME.blockElements.forEach(cell => {
+        cell.classList.remove(GAME.X_CLASS);
+        cell.classList.remove(GAME.Y_CLASS);
+        cell.classList.remove("win");
+        cell.removeEventListener("click", handleClick);
         cell.addEventListener('click', handleClick, { once: true })
     })
 
    GAME.startWindow.classList.add("hide");
+   GAME.winEl.classList.remove("show");
+   GAME.drawEl.classList.remove("show");
+   GAME.winnerImg.children.length ? GAME.winnerImg.removeChild(GAME.winner) : null; 
 }
 
 // handler onclick function of the cell
@@ -46,8 +55,8 @@ function handleClick(e){
     if (flag.length){
         endGame(false, GAME.winEl, GAME.drawEl);
         GAME.winnerImg.append(GAME.winner);
-    }else{
-        console.log("draw");
+    }else if(isDraw(flag)){
+       endGame(true, GAME.winEl, GAME.drawEl);
     }
 
 

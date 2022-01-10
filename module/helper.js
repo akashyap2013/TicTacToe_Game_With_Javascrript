@@ -63,3 +63,12 @@ export function endGame(draw, winEl, drawEl){
         drawEl.classList.add("show");
     }
 }
+
+/**  use to check the draw result */
+export function isDraw(flag){
+    if (flag.length) return;
+    return [...GAME.blockElements].every(cell => {
+        return cell.classList.contains(GAME.X_CLASS) ||
+        cell.classList.contains(GAME.Y_CLASS)
+    })
+}
